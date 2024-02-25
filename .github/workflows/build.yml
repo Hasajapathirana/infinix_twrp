@@ -5,9 +5,9 @@ on:
 
 env:
   # (required) twrp manifest 
-  MANIFEST: https://github.com/PitchBlackRecoveryProject/manifest_pb.git
+  MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git
   # (required) manifest branch 
-  BRANCH: android-12.1
+  BRANCH: twrp-12.1
   # (required) device codename i.e: sweet mojito.. 
   DEVICE: Infinix-X669C
   # (required) device tree link with branch if exists
@@ -54,7 +54,7 @@ jobs:
        - name: Build twrp
          run: |
               cd work
-              . build/envsetup.sh && lunch twrp_Infinix-X669C-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka pbrp -j60
+              . build/envsetup.sh && lunch twrp_Infinix-X669C-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka bootimage -j60
               zip twrp.zip /home/runner/work/infinix_twrp/infinix_twrp/work/out/target/product/$DEVICE/
 
        - name: Save in artifact
