@@ -54,7 +54,7 @@ jobs:
        - name: Build twrp
          run: |
               cd work
-              . build/envsetup.sh && lunch $OT$SYM$DEVICE-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka $TARGET$IMAGE -j60
+              . build/envsetup.sh && lunch omni_Infinix-X669C-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka $TARGET$IMAGE -j60
               zip twrp.zip /home/runner/work/infinix_twrp/infinix_twrp/work/out/target/product/$DEVICE/$TARGET$FORMAT
 
        - name: Save in artifact
