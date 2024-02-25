@@ -49,7 +49,7 @@ jobs:
              cd work
              repo init -u $MANIFEST -b $BRANCH --depth=1              
              repo sync -c -j700 --force-sync --no-clone-bundle --no-tags
-             git clone $DT_LINK --depth=1 --single-branch device/$MANUFACTURER/$DEVICE          
+             git clone https://github.com/Hasajapathirana/android_device_infinix_Infinix-X669C -b android-12.1 --depth=1 --single-branch device/$MANUFACTURER/$DEVICE          
              
        - name: Build twrp
          run: |
