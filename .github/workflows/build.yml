@@ -9,9 +9,9 @@ env:
   # (required) manifest branch 
   BRANCH: twrp-12.1
   # (required) device codename i.e: sweet mojito.. 
-  DEVICE: Infinix-X669C
+  DEVICE: X669C
   # (required) device tree link with branch if exists
-  DT_LINK: https://github.com/twrpdtgen/android_device_infinix_Infinix-X669C.git
+  DT_LINK: https://github.com/twrpdtgen/android_device_infinix_X669C.git
   # (required) who made your phone ? 
   MANUFACTURER: infinix
   # (required) recovery partiton = recovery, else (no recovery partition): boot 
@@ -49,12 +49,12 @@ jobs:
              cd work
              repo init -u $MANIFEST -b $BRANCH --depth=1              
              repo sync -c -j700 --force-sync --no-clone-bundle --no-tags
-             git clone https://github.com/Hasajapathirana/android_device_infinix_Infinix-X669C -b android-12.1 --depth=1 --single-branch device/$MANUFACTURER/$DEVICE          
+             git clone https://github.com/Hasajapathirana/android_device_infinix_X669C -b android-12.1 --depth=1 --single-branch device/$MANUFACTURER/$DEVICE          
              
        - name: Build twrp
          run: |
               cd work
-              . build/envsetup.sh && lunch twrp_Infinix-X669C-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka bootimage -j60
+              . build/envsetup.sh && lunch twrp_X669C-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka bootimage -j60
               zip twrp.zip /home/runner/work/infinix_twrp/infinix_twrp/work/out/target/product/$DEVICE/
 
        - name: Save in artifact
